@@ -6,7 +6,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/app
-    env_file: ./.secrets/app-dev.env
+    env_file: ./.secrets/app-prod.env
 
   db:
     image: postgres:16
@@ -14,7 +14,7 @@ services:
       - "5432:5432" # Expose port for accessing the database
     volumes:
       - postgres_data:/var/lib/postgresql/data # Create a volume for storing database data
-    env_file: ./.secrets/db-dev.env
+    env_file: ./.secrets/db-prod.env
 
 volumes:
   postgres_data:

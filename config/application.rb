@@ -40,13 +40,15 @@ module Thalia
     config.generators.system_tests = nil
 
     config.after_initialize do
-      bot = Discordrb::Bot.new(token: Rails.application.credentials.dig(:discord, :token))
-  
-      bot.message(with_text: 'Ping!') do |event|
-        event.respond('Pong!')
+      if Rails.application.credentials.dig(:discord, :token)
+        bot = Discordrb::Bot.new(token: Rails.application.credentials.dig(:discord, :token))
+    
+        bot.message(with_text: 'Ping!') do |event|
+          event.respond('Pong!')
+        end
+    
+        bot.run(true)
       end
-  
-      bot.run(true)
     end
   end
 end

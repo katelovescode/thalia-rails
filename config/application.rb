@@ -26,7 +26,7 @@ module Thalia
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w(assets tasks))
+    config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -42,11 +42,11 @@ module Thalia
     config.after_initialize do
       if Rails.application.credentials.dig(:discord, :token)
         bot = Discordrb::Bot.new(token: Rails.application.credentials.dig(:discord, :token))
-    
-        bot.message(with_text: 'Ping!') do |event|
-          event.respond('Pong!')
+
+        bot.message(with_text: "Ping!") do |event|
+          event.respond("Pong!")
         end
-    
+
         bot.run(true)
       end
     end

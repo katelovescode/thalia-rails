@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_25_003532) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_25_013222) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -115,6 +115,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_25_003532) do
     t.index ["expires_at"], name: "index_solid_queue_semaphores_on_expires_at"
     t.index ["key", "value"], name: "index_solid_queue_semaphores_on_key_and_value"
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
+  end
+
+  create_table "writing_sets", force: :cascade do |t|
+    t.integer "day_of_the_week"
+    t.time "start_time"
+    t.integer "number_of_sprints"
+    t.integer "length_of_time_in_minutes"
+    t.integer "length_of_break_in_minutes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

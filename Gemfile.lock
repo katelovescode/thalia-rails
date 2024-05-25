@@ -108,6 +108,11 @@ GEM
     et-orbi (1.2.11)
       tzinfo
     event_emitter (0.2.6)
+    factory_bot (6.4.6)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     ffi (1.16.3)
     fugit (1.10.1)
       et-orbi (~> 1, >= 1.2.7)
@@ -335,6 +340,7 @@ DEPENDENCIES
   debug
   discordrb
   dockerfile-rails (>= 1.6)
+  factory_bot_rails
   jbuilder
   jsbundling-rails
   pg (~> 1.1)

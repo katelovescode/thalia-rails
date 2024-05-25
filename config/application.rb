@@ -38,11 +38,5 @@ module Thalia
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-
-    config.after_initialize do
-      if Rails.application.credentials.dig(:discord, :token)
-        DiscordBot.instance.run
-      end
-    end
   end
 end

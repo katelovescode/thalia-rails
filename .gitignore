@@ -45,3 +45,6 @@
 /config/credentials/development.key
 
 /config/credentials/production.key
+
+# Macs, for serious
+**/.DS_Store

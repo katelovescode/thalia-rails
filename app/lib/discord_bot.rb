@@ -7,7 +7,7 @@ class DiscordBot
     thalia = Discordrb::Bot.new(token: Rails.application.credentials.dig(:discord, :token))
     add_message_listeners(thalia)
     at_exit { thalia.stop }
-    thalia.run
+    thalia.run(true)
   end
 
   private

@@ -48,3 +48,6 @@
 
 # Macs, for serious
 **/.DS_Store
+
+# Development overrides
+**/docker-compose.override.yml

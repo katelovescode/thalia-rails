@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Local dev:
 
-Things you may want to cover:
+```
+docker compose build
+docker compose run --rm web bundle exec rails db:prepare
+docker compose up
+```
 
-* Ruby version
+New gems/dependencies/configuration at the app root?
 
-* System dependencies
+```
+docker compose down
+docker compose build
+docker compose run --rm web bundle install
+docker compose up
+```
 
-* Configuration
+New migrations?
 
-* Database creation
+```
+docker compose run --rm web bundle exec rails db:migrate
+```
 
-* Database initialization
+OR
 
-* How to run the test suite
+```
+docker compose exec web bundle exec rails db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Thalia Test lives on my test Discord server, "Ping!" her to confirm she's up
 
-* Deployment instructions
+Production is down for now
 
-* ...
+Troubleshooting:
+
+- delete all images/volumes/containers/networks/build artifacts (convenience methods: `dbb` and `dpru` for my local environment)
